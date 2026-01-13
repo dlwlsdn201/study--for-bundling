@@ -8,9 +8,21 @@ module.exports = {
    * 'none' : 최적화 없음, 소스맵 제외 -> 모든 설정 커스터마이징 때 사용
    */
   mode: "development",
-  entry: "./main.js", // 어떤 파일을 진입점으로 번들링할지
+  entry: "./main.ts", // 어떤 파일을 진입점으로 번들링할지
   output: {
     filename: "bundle.js", // 번들로 만들어질 파일 이름
     path: path.resolve(__dirname, "dist"), // 번들 파일이 저장될 위치
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ts$/, // .ts 파일들은
+        use: "ts-loader", // ts-loader를 사용하여 타입스크립트 파일을 자바스크립트로 변환
+        exclude: /node_modules/, // node_modules 폴더는 제외
+      },
+    ],
+  },
+  resolve: {
+    extensions: [".ts", ".js"], // .ts 파일과 .js 파일을 확장자 생략해도 처리할 수 있도록 설정
   },
 };

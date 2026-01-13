@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es6", // 어떤 버전의 JS으로 변환할지 결정
+        "module": "esnext", // 모듈 시스템 설정. 최신 ESM 형식인 "ESNext" 사용 시, 트리쉐이킹 등 웹팩의 최적화 기능을 더 잘 활용 가능
+        "strict": true, // 모든 엄격한 타입 검사 활성화
+        "skipLibCheck": true, // 라이브러리 파일의 타입 검사를 건너뛰기 (빌드 속도 향상)
+        "moduleResolution": "node", // 모듈에 로컬 파일 시스템이 없으면, node_modules 디렉터리에서 모듈을 찾음
+        "allowJs": true,
+        "noEmit": true
+    },
+    "include": ["./**/*.ts", "./**/*.js"],
+    "exclude": ["node_modules", "dist"]
+}
