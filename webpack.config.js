@@ -16,13 +16,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/, // .ts 파일들은
+        test: /\.tsx?$/, // .ts 또는 .tsx 파일들은
         use: "ts-loader", // ts-loader를 사용하여 타입스크립트 파일을 자바스크립트로 변환
         exclude: /node_modules/, // node_modules 폴더는 제외
       },
     ],
   },
   resolve: {
-    extensions: [".ts", ".js"], // .ts 파일과 .js 파일을 확장자 생략해도 처리할 수 있도록 설정
+    extensions: [".ts", ".tsx", ".js", ".jsx"], // .ts 파일과 .js 파일을 확장자 생략해도 처리할 수 있도록 설정
   },
 };
