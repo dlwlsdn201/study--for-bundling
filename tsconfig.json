@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "jsx": "react", // JSX을 react 문법으로 변환
+        "jsx": "react-jsx", // JSX을 react 문법으로 변환하며, "react-jsx"는 `import React from "react"` 구문 생략 가능
         "esModuleInterop": true, // react 을 ESM으로 import 할 수 있게 할지에 대한 여부
         "target": "es6", // 어떤 버전의 JS으로 변환할지 결정
         "module": "esnext", // 모듈 시스템 설정. 최신 ESM 형식인 "ESNext" 사용 시, 트리쉐이킹 등 웹팩의 최적화 기능을 더 잘 활용 가능
@@ -9,6 +9,6 @@
         "moduleResolution": "node", // 모듈에 로컬 파일 시스템이 없으면, node_modules 디렉터리에서 모듈을 찾음
         "allowJs": true,
     },
-    "include": ["./**/*.ts", "./**/*.js"],
+    "include": ["./**/*.ts", "./**/*.tsx"],
     "exclude": ["node_modules", "dist"]
 }
