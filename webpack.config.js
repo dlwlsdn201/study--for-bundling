@@ -41,6 +41,17 @@ module.exports = {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i, // 이미지 파일 확장자
+        type: "asset", // webpack 5 에 내장되어 있는 Asset Modules 사용
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/resource", // 폰트는 항상 별도 파일로 내보내는 것이 좋음.
+        generator: {
+          filename: "assets/[name][ext]",
+        },
+      },
     ],
   },
   resolve: {
