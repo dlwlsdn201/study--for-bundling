@@ -37,6 +37,10 @@ module.exports = {
         // use: "ts-loader", // ts-loader를 사용하여 타입스크립트 파일을 자바스크립트로 변환
         exclude: /node_modules/, // node_modules 폴더는 제외
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
   resolve: {
