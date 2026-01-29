@@ -1,6 +1,14 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "public"),
+    },
+    compress: true,
+    port: 3000,
+  },
   /**
    * @desc mode
    * 'development' : 소스맵 기본 포함, 최소한의 압축(공백제거, 변수명 단순화 등) -> 디버깅 쉬운 환경 제공
@@ -10,9 +18,16 @@ module.exports = {
   mode: "development",
   entry: "./main.tsx", // 어떤 파일을 진입점으로 번들링할지
   output: {
-    filename: "bundle.js", // 번들로 만들어질 파일 이름
     path: path.resolve(__dirname, "dist"), // 번들 파일이 저장될 위치
+    filename: "index.js", // 번들로 만들어질 파일 이름
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./index.html", // 템플릿 HTML
+      filename: "index.html", // 출력될 HTML 파일 이름 (dist/*)
+      inject: true, // <script> 태그 자동 삽입
+    }),
+  ],
   module: {
     rules: [
       {
